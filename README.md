@@ -19,8 +19,6 @@ The **Smart Home System** is a console-based application written in Java that al
 3. **Command Pattern**: Encapsulates actions like turning devices on and off into command objects.
 4. **Observer Pattern**: Automatically updates devices based on changes in other devices (e.g., turning off lights when the temperature is too high).
 
-## Setup
-
 ### Requirements
 
 - Java Development Kit (JDK) 8 or higher.
