@@ -1,37 +1,38 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class SmartHomeManager {
     private static SmartHomeManager instance;
-    private List<IDevice> devices;
+    private List<Device> devices;
 
     private SmartHomeManager() {
-        devices = new List<IDevice>();
+        devices = new ArrayList<>();
     }
 
-    public static SmartHomeManager Instance {
-        get {
-            if (instance == null) {
-                instance = new SmartHomeManager();
-            }
-            return instance;
+    public static SmartHomeManager getInstance() {
+        if (instance == null) {
+            instance = new SmartHomeManager();
         }
+        return instance;
     }
 
-    public void AddDevice(IDevice device) {
-        devices.Add(device);
+    public void addDevice(Device device) {
+        devices.add(device);
     }
 
-    public void RemoveDevice(int id) {
-        var device = devices.FirstOrDefault(d => d.ID == id);
+    public void removeDevice(int id) {
+        Device device = devices.stream().filter(d -> d.getId() == id).findFirst().orElse(null);
         if (device != null) {
-            devices.Remove(device);
-            Console.WriteLine($"Device with ID {id} removed.");
+            devices.remove(device);
+            System.out.println("Device with ID " + id + " removed.");
         } else {
-            Console.WriteLine($"Device with ID {id} not found.");
+            System.out.println("Device with ID " + id + " not found.");
         }
     }
 
-    public void ListDevices() {
-        foreach (var device in devices) {
-            device.GetStatus();
+    public void listDevices() {
+        for (Device device : devices) {
+            device.getStatus();
         }
     }
 }
