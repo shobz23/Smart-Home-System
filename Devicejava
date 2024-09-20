@@ -1,0 +1,102 @@
+public abstract class Device {
+    protected int id;
+
+    public Device(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public abstract void turnOn();
+    public abstract void turnOff();
+    public abstract void getStatus();
+}
+
+// Light.java
+public class Light extends Device {
+    private boolean isOn;
+
+    public Light(int id) {
+        super(id);
+        isOn = false;
+    }
+
+    @Override
+    public void turnOn() {
+        isOn = true;
+        System.out.println("Light is turned ON.");
+    }
+
+    @Override
+    public void turnOff() {
+        isOn = false;
+        System.out.println("Light is turned OFF.");
+    }
+
+    @Override
+    public void getStatus() {
+        System.out.println("Light with ID " + id + ": " + (isOn ? "On" : "Off"));
+    }
+}
+
+// Thermostat.java
+public class Thermostat extends Device {
+    private double temperature;
+
+    public Thermostat(int id) {
+        super(id);
+        temperature = 25.0;  // default temperature
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Thermostat is ON.");
+    }
+
+    @Override
+    public void turnOff() {
+        System.out.println("Thermostat is OFF.");
+    }
+
+    @Override
+    public void getStatus() {
+        System.out.println("Thermostat with ID " + id + ": Temperature = " + temperature + "°C");
+    }
+
+    public double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
+}
+
+// DoorLock.java
+public class DoorLock extends Device {
+    private boolean isLocked;
+
+    public DoorLock(int id) {
+        super(id);
+        isLocked = false;  // initially unlocked
+    }
+
+    @Override
+    public void turnOn() {
+        isLocked = true;
+        System.out.println("Door is Locked.");
+    }
+
+    @Override
+    public void turnOff() {
+        isLocked = false;
+        System.out.println("Door is Unlocked.");
+    }
+
+    @Override
+    public void getStatus() {
+        System.out.println("Door Lock with ID " + id + ": " + (isLocked ? "Locked" : "Unlocked"));
+    }
+}
