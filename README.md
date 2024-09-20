@@ -24,11 +24,11 @@ The **Smart Home System** is a console-based application written in Java that al
 - Java Development Kit (JDK) 8 or higher.
 - A Java IDE or command line with `javac` and `java`.
 
-Usage
+### Usage
 Add Devices: The system adds smart devices like lights, thermostats, and door locks.
 Turn On/Off Devices: Using command invokers, you can turn devices on or off.
 Automation with Observer: Devices like the thermostat trigger actions in other devices (e.g., turn off lights if the temperature exceeds 30°C).
 
-Future Enhancements
+### Future Enhancements
 Scheduling: Implement scheduling for devices to turn on or off at specific times.
 Authentication: Add user authentication to restrict device access.
